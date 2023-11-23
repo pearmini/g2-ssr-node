@@ -1,0 +1,46 @@
+{
+  "name": "@berryv/g2-ssr-node",
+  "version": "0.0.1",
+  "description": "The tool for G2 spec's SSR(Server-Side Rendering) in Node.js.",
+  "author": {
+    "name": "pearmini",
+    "url": "https://github.com/pearmini"
+  },
+  "license": "ISC",
+  "bin": "bin/g2-ssr-node.js",
+  "main": "src/index.js",
+  "files": [
+    "bin",
+    "dist",
+    "src"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pearmini/g2-ssr-node"
+  },
+  "scripts": {
+    "test": "npm run test:lint && npm run test:format && npm run test:node",
+    "test:png": "g2-ssr-node g2png -i ./test/plots/bar.json -o ./test/output/bar.png",
+    "test:node": "vitest",
+    "test:lint": "eslint src test",
+    "test:format": "prettier --check src test bin",
+    "build": "rm -rf dist && rollup -c"
+  },
+  "dependencies": {
+    "@antv/g": "^5.18.21",
+    "@antv/g-canvas": "^1.11.24",
+    "@antv/g2": "^5.1.8",
+    "canvas": "^2.11.2",
+    "commander": "^11.1.0",
+    "node-fetch": "^2.7.0"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-json": "^6.0.1",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "eslint": "^8.53.0",
+    "prettier": "^3.1.0",
+    "rollup": "^3.0.0",
+    "vitest": "^0.32.0"
+  }
+}
