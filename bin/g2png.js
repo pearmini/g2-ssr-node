@@ -7,6 +7,7 @@ function readJSONSync(input) {
 }
 
 async function g2png({ input, output }) {
+  console.log(`Start converting ${input} to ${output} ...`);
   const spec = await readJSONSync(input);
   const canvas = await render(spec);
   const out = fs.createWriteStream(output);
