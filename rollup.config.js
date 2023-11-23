@@ -1,9 +1,10 @@
 const resolve = require("@rollup/plugin-node-resolve");
 const cjs = require("@rollup/plugin-commonjs");
 const json = require("@rollup/plugin-json");
+const terser = require("@rollup/plugin-terser");
 
 const common = {
-  plugins: [resolve(), cjs(), json()],
+  plugins: [resolve(), cjs(), json(), terser()],
   external: ["@antv/g"],
 };
 
