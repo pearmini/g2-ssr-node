@@ -20,7 +20,10 @@
   },
   "scripts": {
     "test": "npm run test:lint && npm run test:format && npm run test:node",
-    "test:png": "g2-ssr-node g2png -i ./test/plots/bar.json -o ./test/output/bar.png",
+    "test:cli": "npm run test:png && npm run test:pdf && npm run test:jpeg",
+    "test:png": "rm -rf ./test/output/bar.png && g2-ssr-node g2png -i ./test/plots/bar.json -o ./test/output/bar.png",
+    "test:pdf": "rm -rf ./test/output/bar.pdf && g2-ssr-node g2pdf -i ./test/plots/bar.json -o ./test/output/bar.pdf",
+    "test:jpeg": "rm -rf ./test/output/bar.jpeg && g2-ssr-node g2jpeg -i ./test/plots/bar.json -o ./test/output/bar.jpeg",
     "test:node": "vitest",
     "test:lint": "eslint src test",
     "test:format": "prettier --check src test bin",
@@ -40,6 +43,7 @@
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-terser": "^0.4.4",
     "eslint": "^8.53.0",
+    "eslint-config-prettier": "^9.0.0",
     "prettier": "^3.1.0",
     "rollup": "^3.0.0",
     "vitest": "^0.32.0"

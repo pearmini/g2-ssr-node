@@ -21,17 +21,19 @@ function updateLight(stdlib) {
   return lib;
 }
 
-async function render(options) {
-  const { width = 640, height = 480, ...rest } = options;
-  const [gCanvas, canvas] = createGCanvas(width, height, 2);
-  const spec = { ...rest, width, height };
-  const context = {
-    canvas: gCanvas,
-    library: updateLight(stdlib),
-    createCanvas: () => createCanvas(300, 150),
+function render(type) {
+  return async (options) => {
+    const { width = 640, height = 480, ...rest } = options;
+    const [gCanvas, canvas] = createGCanvas(width, height, type);
+    const spec = { ...rest, width, height };
+    const context = {
+      canvas: gCanvas,
+      library: updateLight(stdlib),
+      createCanvas: () => createCanvas(300, 150),
+    };
+    await new Promise((resolve) => renderChart(spec, context, resolve));
+    return canvas;
   };
-  await new Promise((resolve) => renderChart(spec, context, resolve));
-  return canvas;
 }
 
 module.exports = { render };
