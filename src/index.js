@@ -1,3 +1,4 @@
-const { render } = require("./render.js");
+const { renderImage } = require("./renderImage.js");
+const { renderPDF } = require("./renderPDF.js");
 
-module.exports = { render };
+module.exports = { renderImage, renderPDF };

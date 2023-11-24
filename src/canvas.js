@@ -2,8 +2,8 @@ const { createCanvas } = require("canvas");
 const { Canvas } = require("../dist/g");
 const { Renderer } = require("../dist/g-canvas");
 
-function createGCanvas(width, height, dpr) {
-  const canvas = createCanvas(width, height);
+function createGCanvas(width, height, type) {
+  const canvas = createCanvas(width, height, type);
   const offscreenCanvas = createCanvas(1, 1);
   const renderer = new Renderer();
 
@@ -20,7 +20,7 @@ function createGCanvas(width, height, dpr) {
       canvas,
       renderer,
       offscreenCanvas,
-      devicePixelRatio: dpr,
+      devicePixelRatio: 2,
     }),
     canvas,
   ];

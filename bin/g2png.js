@@ -1,26 +1,9 @@
-const fs = require("fs");
-const { render } = require("../src/index.js");
+// const fs = require("fs");
 
-function readJSONSync(input) {
-  const data = fs.readFileSync(input, "utf-8");
-  return JSON.parse(data);
-}
+const { renderImage } = require("../src/index.js");
 
-async function g2png({ input, output }) {
-  console.log(`Start converting ${input} to ${output} ...`);
-  const spec = await readJSONSync(input);
-  const canvas = await render(spec);
-  const out = fs.createWriteStream(output);
-  const stream = canvas.createPNGStream();
-  stream.pipe(out);
-  return new Promise((resolve, reject) => {
-    out
-      .on("finish", () => {
-        console.log(`Convert ${input} to ${output} successfully.`);
-        resolve();
-      })
-      .on("error", () => reject());
-  });
-}
+const { convert } = require("./convert.js");
+
+const g2png = convert("createPNGStream", renderImage);
 
 module.exports = { g2png };
