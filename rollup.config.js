@@ -12,8 +12,7 @@ module.exports = [
   {
     input: "antv/g2.js",
     output: {
-      dir: "dist",
-      name: "g2.cjs.js",
+      file: "dist/g2.js",
       format: "cjs",
     },
     ...common,
@@ -21,8 +20,7 @@ module.exports = [
   {
     input: "antv/g.js",
     output: {
-      dir: "dist",
-      name: "g.cjs.js",
+      file: "dist/g2.js",
       format: "cjs",
     },
     ...common,
@@ -30,8 +28,7 @@ module.exports = [
   {
     input: "antv/g-canvas.js",
     output: {
-      dir: "dist",
-      name: "g-canvas.cjs.js",
+      file: "dist/g2-canvas.js",
       format: "cjs",
     },
     ...common,
