@@ -1,6 +1,5 @@
 const { createCanvas } = require("canvas");
-const { Canvas } = require("../dist/g");
-const { Renderer } = require("../dist/g-canvas");
+const { Renderer, Canvas } = require("../dist/antv");
 
 function createGCanvas(width, height, type) {
   const canvas = createCanvas(width, height, type);

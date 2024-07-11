@@ -1,6 +1,6 @@
 const { createCanvas } = require("canvas");
 const fetch = require("node-fetch");
-const { stdlib, render: renderChart } = require("../dist/g2.js");
+const { stdlib, render: renderChart } = require("../dist/antv");
 const { createGCanvas } = require("./canvas.js");
 
 if (!global.fetch) {

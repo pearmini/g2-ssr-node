@@ -1,0 +1,10 @@
+{
+  "type": "wordCloud",
+  "layout": { "spiral": "rectangular", "fontSize": [20, 100] },
+  "data": {
+    "type": "fetch",
+    "value": "https://assets.antv.antgroup.com/g2/philosophy-word.json"
+  },
+  "encode": { "color": "text" },
+  "legend":false
+}
