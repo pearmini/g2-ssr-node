@@ -1,6 +1,6 @@
 {
   "name": "@berryv/g2-ssr-node",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "The tool for G2 spec's SSR(Server-Side Rendering) in Node.js.",
   "author": {
     "name": "pearmini",
@@ -22,16 +22,18 @@
     "test": "npm run test:lint && npm run test:format && npm run test:node",
     "test:cli": "npm run test:png && npm run test:pdf && npm run test:jpeg",
     "test:png": "rm -rf ./test/output/bar.png && g2-ssr-node g2png -i ./test/plots/bar.json -o ./test/output/bar.png",
+    "test:canvas": "rm -rf ./test/output/cloud.png && g2-ssr-node g2png -i ./test/plots/cloud.json -o ./test/output/cloud.png",
     "test:pdf": "rm -rf ./test/output/bar.pdf && g2-ssr-node g2pdf -i ./test/plots/bar.json -o ./test/output/bar.pdf",
     "test:jpeg": "rm -rf ./test/output/bar.jpeg && g2-ssr-node g2jpeg -i ./test/plots/bar.json -o ./test/output/bar.jpeg",
     "test:node": "vitest",
     "test:lint": "eslint src test",
     "test:format": "prettier --check src test bin",
-    "build": "rm -rf dist && rollup -c"
+    "build": "rm -rf dist && rollup -c",
+    "prepublishOnly": "npm run build"
   },
   "dependencies": {
-    "@antv/g": "^5.18.21",
-    "@antv/g-canvas": "^1.11.24",
+    "@antv/g": "^6.0.0",
+    "@antv/g-canvas": "^2.0.0",
     "@antv/g2": "^5.1.8",
     "canvas": "^2.11.2",
     "commander": "^11.1.0",
